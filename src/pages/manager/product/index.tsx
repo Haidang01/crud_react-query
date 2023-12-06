@@ -174,9 +174,11 @@ const ManagerProductPage = () => {
                     </table>
                 </CardBody>
                 <CardFooter className='flex items-center justify-between border-t border-blue-gray-50 p-4'>
-                    <Button variant={'outlined'} disabled={page === 1} size='sm'>
-                        <NavLink to={`/admin/products?page=${+page - 1}`}>Previous</NavLink>
-                    </Button>
+                    <NavLink to={`/admin/products?page=${+page - 1}`}>
+                        <Button variant={'outlined'} disabled={page === 1} size='sm'>
+                            Previous
+                        </Button>
+                    </NavLink>
                     <div className='flex items-center gap-2'>
                         {Array(totalPage)
                             .fill(0)
@@ -192,9 +194,11 @@ const ManagerProductPage = () => {
                                 </NavLink>
                             ))}
                     </div>
-                    <Button variant={'outlined'} disabled={page === totalPage} size='sm'>
-                        <NavLink to={`/admin/products?page=${+page + 1}`}>Next</NavLink>
-                    </Button>
+                    <NavLink to={`/admin/products?page=${+page + 1}`}>
+                        <Button variant={'outlined'} disabled={page === totalPage} size='sm'>
+                            Next
+                        </Button>
+                    </NavLink>
                 </CardFooter>
             </Card>
         </div>

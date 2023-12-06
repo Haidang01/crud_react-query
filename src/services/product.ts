@@ -16,7 +16,7 @@ export const getProducts = async (page: number = 1, limit: number = 6) => {
 export const getProduct = async (id: number) => {
     try {
         const response = await instance.get(`/products/${id}`)
-        return response.data
+        return response.data as Product
     } catch (error) {
         console.log(`['FETCH_PRODUCT_ERROR']`, error)
     }

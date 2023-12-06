@@ -65,5 +65,12 @@
       "id": 8
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "dang@gmail.com",
+      "password": "$2a$10$dsU9dBonK1fbPZQst95TVedje2pQFQKbFE7ojjZV2j0.vOfTdeNdO",
+      "username": "dang",
+      "id": 1
+    }
+  ]
 }

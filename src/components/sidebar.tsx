@@ -1,30 +1,33 @@
 import React from 'react'
 import {
+    Accordion,
+    AccordionBody,
+    AccordionHeader,
     Card,
-    Typography,
+    Chip,
     List,
     ListItem,
     ListItemPrefix,
     ListItemSuffix,
-    Chip,
-    Accordion,
-    AccordionHeader,
-    AccordionBody
+    Typography
 } from '@material-tailwind/react'
 import {
-    PresentationChartBarIcon,
-    ShoppingBagIcon,
-    UserCircleIcon,
     Cog6ToothIcon,
     InboxIcon,
-    PowerIcon
+    PowerIcon,
+    PresentationChartBarIcon,
+    ShoppingBagIcon,
+    UserCircleIcon
 } from '@heroicons/react/24/solid'
-import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
 
 export function Sidebar() {
     const [open, setOpen] = React.useState(0)
-
+    const logout = () => {
+        localStorage.clear()
+        window.location.href = '/login'
+    }
     const handleOpen = (value: any) => {
         setOpen(open === value ? 0 : value)
     }
@@ -141,14 +144,12 @@ export function Sidebar() {
                     </ListItemPrefix>
                     Settings
                 </ListItem>
-                <NavLink to={'/'}>
-                    <ListItem>
-                        <ListItemPrefix>
-                            <PowerIcon className='h-5 w-5' />
-                        </ListItemPrefix>
-                        Log Out
-                    </ListItem>
-                </NavLink>
+                <ListItem onClick={() => logout()}>
+                    <ListItemPrefix>
+                        <PowerIcon className='h-5 w-5' />
+                    </ListItemPrefix>
+                    Log Out
+                </ListItem>
             </List>
         </Card>
     )

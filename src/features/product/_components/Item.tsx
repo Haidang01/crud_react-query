@@ -2,7 +2,7 @@ import { IProduct } from '@/common/type'
 import { useProductMutation } from '@/hooks/useProductMutation'
 import joi from 'joi'
 import { useState } from 'react'
-import { Form, FormControl, FormField, FormItem } from '../../../components/ui/form'
+import { Form, FormControl, FormField, FormItem } from '../../../components/ui/RegisterForm.tsx'
 import { Input } from '../../../components/ui/input'
 import { useToast } from '../../../components/ui/use-toast'
 

@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { addProduct } from '@/services/product.ts'
 import { toast } from '@/components/ui/use-toast.ts'
+import { productSchema } from '@/validate/productSchema.ts'
 
 type FormStateType = Omit<Product, 'id'>
 const initialFormState: FormStateType = {
@@ -42,6 +43,11 @@ const AddProduct = () => {
     })
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        const { error } = productSchema.validate(formState, { abortEarly: false })
+        if (error) {
+            toast({ variant: 'destructive', title: 'Validate error!!!', description: error?.message.split('.')[0] })
+            return
+        }
         mutate(formState)
     }
     return (
